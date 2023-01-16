@@ -1,0 +1,43 @@
+﻿<Window x:Name="DefaultWindow" x:Class="flipperGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:flipperGame"
+        mc:Ignorable="d"
+        Title="GameTable" Height="1000" Width="1850" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="CanMinimize" KeyDown="MainWindow_KeyDownBinds" KeyUp="MainWindow_KeyUpBinds">
+    <Grid x:Name="DefaultGrid" Background="#2d2d2d">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        
+        <Canvas Name="CanvasGameTable" Width="1600" Height="900" Margin="0,0,0,0" Background="Black" Grid.Column="3">
+            <Ellipse x:Name="Ball" Width="50" Height="50" Fill="#FF4EFD54" Canvas.Left="10" Visibility="Hidden"/>
+            <Rectangle x:Name="PlayerLeft" Height="150" Width="15" Fill="Red" Canvas.Left="0" Canvas.Top="375"/>
+            <Rectangle x:Name="PlayerRight" Height="150" Width="15" Fill="Red" Canvas.Left="1585" Canvas.Top="375"/>
+            <Label x:Name="Lbl_Tip" Content="Choose the player to begin!" Visibility="Visible" FontSize="40" Foreground="White" FontFamily="Ink Free" Canvas.Left="583" Canvas.Top="420"/>
+        </Canvas>
+        <Button x:Name="Bt_StartGame" Content="Play" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Click="Bt_StartGame_Click" FontSize="36" Grid.Column="1" IsEnabled="false" Foreground="Red"/>
+        <Label x:Name="Lbl_CurrentScore" Content="0 : 0" HorizontalAlignment="Left" Margin="42,182,0,0" VerticalAlignment="Top" FontSize="24" Grid.Column="1"/>
+        <Button x:Name="Bt_Info" Content="  i  " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Bt_Info_Click" FontSize="24" Grid.Column="1" Background="White" Foreground="Red"/>
+        <Button x:Name="Bt_Reset" Content="Reset" HorizontalAlignment="Left" Margin="39,275,0,0" VerticalAlignment="Top" Click="Bt_Reset_Click" FontSize="24" Grid.Column="1" IsEnabled="false" Foreground="Red" Background="White"/>
+        
+        
+        <StackPanel x:Name="StsckPanelWhoBegins" Grid.Column="1" Margin="0, 400,0,300" Grid.ColumnSpan="22">
+            <Label Content="Who should start the game?" FontSize="12"/>
+            <RadioButton x:Name="RB_player1Begins" GroupName="PlayerBegins" Content="Player 1" Checked="RB_player1Begins_Checked" Margin="5"/>
+            <RadioButton x:Name="RB_player2Begins" GroupName="PlayerBegins" Content="Player 2" Checked="RB_player2Begins_Checked" Margin="5"/>
+        </StackPanel>
+        
+
+
+    </Grid>
+</Window>
